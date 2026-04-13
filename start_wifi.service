@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto Start Broadcom WiFi Hotspot
+After=network.target network-online.target
+
+[Service]
+# 改为 simple 模式，确保系统能持续监控和守护它，死掉就自动拉起
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/bin/bash /home/HwHiAiUser/start_wifi.sh
+
+[Install]
+WantedBy=multi-user.target
